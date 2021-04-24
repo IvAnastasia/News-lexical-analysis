@@ -56,7 +56,7 @@ unigram_rus = unigramms('rusnews')
 for k, v in unigram_rus.items():
     if v > 1:
         print('слово "', k, '" встречается в текстах гос.новостей ', v, ' раз(а)')
-unigram_indep = unigramms('rusnews')
+unigram_indep = unigramms('indepnews')
 for k, v in unigram_indep.items():
     if v > 1:
         print('слово "', k, '" встречается в текстах независимых новостей ', v, ' раз(а)')
@@ -94,7 +94,7 @@ for n in range(1, 5):
     unigram_indep = unigramms('indepnew' + str(n))
     for k, v in unigram_indep.items():
         if v > 1:
-            print('слово "', k, '" встречается в тексте этой гос.новости ', v, ' раз(а)')
+            print('слово "', k, '" встречается в тексте этой независимой новости ', v, ' раз(а)')
     bigram_rus = bigramms('rusnew' + str(n))
     for k, v in bigram_rus.items():
         if v > 0:
