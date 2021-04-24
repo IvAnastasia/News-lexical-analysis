@@ -19,4 +19,6 @@ def count_words(text: str, words: list):
         if word_normal_form in report:
             report[word_normal_form] += 1
     return report
+words = ['русский', 'российский', 'западный', 'американский']
+count_words(text, words)
 
