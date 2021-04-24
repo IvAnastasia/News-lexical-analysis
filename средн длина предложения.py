@@ -34,6 +34,8 @@ with open('indepnews.txt', encoding='utf-8') as file:
 
 sym_rus_num = 0
 sym_indep_num = 0
+word_rus_num = 0
+word_indep_num = 0
 for n in range(1, 2):
     print('Текст №' + str(n))
     with open('rusnew' + str(n) + '.txt', encoding='utf-8') as file:
@@ -50,11 +52,21 @@ for n in range(1, 2):
         print('Независимая новость, средняя длина предложения в символах', indep_sym, ', в словах: ', indep_word)
     if rus_sym > indep_sym:
         sym_rus_num += 1
-        print('Среднее количество символов больше в гос.новости')
+        print('Среднее количество символов больше в этой гос.новости')
     elif indep_sym > rus_sym:
         sym_indep_num += 1
-        print('Среднее количество символов больше в независимой новости')
+        print('Среднее количество символов больше в этой независимой новости')
+    if rus_word > indep_word:
+        word_rus_num += 1
+        print('Среднее количество слов больше в этой гос.новости')
+    elif indep_word > rus_word:
+        word_indep_num += 1
+        print('Среднее количество слов больше в этой независимой новости')
 if sym_rus_num > sym_indep_num:
     print('В целом гос. новостей, в которых символов больше, больше: ', sym_rus_num, 'vs.', sym_indep_num)
 elif sym_rus_num < sym_indep_num:
     print('В целом независимых новостей, в которых символов больше, больше: ', sym_indep_num, 'vs.', sym_rus_num)
+if word_rus_num > word_indep_num:
+    print('В целом гос. новостей, в которых слов больше, больше: ', word_rus_num, 'vs.', wor_indep_num)
+elif word_rus_num < word_indep_num:
+    print('В целом независимых новостей, в которых слов больше, больше: ', wor_indep_num, 'vs.', wor_rus_num)
