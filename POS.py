@@ -3,7 +3,7 @@ import pymorphy2
 morph = pymorphy2.MorphAnalyzer()
 
 def get_POS(word):
-    p = morph.parse('стали')[0]
+    p = morph.parse(word)[0]
     return p.tag.POS
 
 def POS_freq_dict(text_name):
