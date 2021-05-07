@@ -41,16 +41,13 @@ for li in rus_links:
         text = file1.read()
         with open('rusnews.txt', 'a') as file2:
             file2.write(text)
-    n += 1
-n = 1
-for li in indep_links:
-    newstext = parse(link)
-    with open('indepnew' + str(n) + '.txt', 'a') as file:
-        for link in li:
-            newstext = parse(link)
-            file.write(newstext)
-    with open('indepnew' + str(n) + '.txt', 'r') as file1:
-        text = file1.read()
-        with open('indepnews.txt', 'a') as file2:
-            file2.write(text)
-    n += 1
+    for li in indep_links:
+        newstext = parse(link)
+        with open('indepnew' + str(n) + '.txt', 'a') as file:
+            for link in li:
+                newstext = parse(link)
+                file.write(newstext)
+        with open('indepnew' + str(n) + '.txt', 'r') as file1:
+            text = file1.read()
+            with open('indepnews.txt', 'a') as file2:
+                file2.write(text)
