@@ -5,7 +5,7 @@ import re
 
 # среднее количество предложений в текстах
 def mean_sentence_number(text):
-    sentences = re.split(r'[.?!]', text)
+    sentences = re.split(r'[.?!]|$', text)
     return len(sentences)
 
 rus_sum = 0
