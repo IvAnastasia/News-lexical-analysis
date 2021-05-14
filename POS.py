@@ -34,7 +34,7 @@ for key in rus_POS.keys():
         print(key, ' (по доли употребления, т.е. в зависимости от объёмов текста):', 'в гос.новостях ', rus_POS[key]/words_number(rus_POS), ',', 'в независимых новостях ', indep_POS[key]/words_number(indep_POS))
 
 #сравним по частотности разные частей речи по каждой из гос. новостей и соответствующей ей независимой новости
-for n in range(1, 2):
+for n in range(1, 17):
     print('Текст №' + str(n))
     rus_POS = POS_freq_dict('rusnew' + str(n))
     indep_POS = POS_freq_dict('indepnew' + str(n))
