@@ -8,7 +8,7 @@ def get_POS(word):
 
 def POS_freq_dict(text_name):
     freq_dict = {}
-    with open(text_name + '.txt') as file:
+    with open(text_name + '.txt, encoding = 'utf-8'') as file:
         text = file.read()
         dirty_words = re.findall("\w+", text)
         for dirty_word in dirty_words:
