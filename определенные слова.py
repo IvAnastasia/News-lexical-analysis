@@ -23,7 +23,7 @@ def count_words(text: str, words: list):
 
 words = ['русский', 'российский', 'западный', 'американский']
 
-for n in range(1, 5):
+for n in range(1, 17):
     print('Текст №' + str(n))
     with open('rusnew' + str(n) + '.txt', encoding = 'utf-8') as file:
         text = file.read()
