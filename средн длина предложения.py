@@ -30,7 +30,7 @@ sym_rus_num = 0
 sym_indep_num = 0
 word_rus_num = 0
 word_indep_num = 0
-for n in range(1, 2):
+for n in range(1, 5):
     print('Текст №' + str(n))
     with open('rusnew' + str(n) + '.txt', encoding='utf-8') as file:
         text = file.read()
