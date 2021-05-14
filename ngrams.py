@@ -85,7 +85,7 @@ for k, v in trigram_indep.items():
 
 #а теперь для каждой новости отдельно: сравним частотные уни-, би- и триграммы для каждой новости
 #первое число в in range() - номер первой новости, второе число - номер последней новости
-for n in range(1, 5):
+for n in range(1, 17):
     print('Текст №' + str(n))
     unigram_rus = unigramms('rusnew' + str(n))
     for k, v in unigram_rus.items():
