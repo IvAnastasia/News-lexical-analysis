@@ -31,7 +31,7 @@ elif rus_freq < indep_freq:
 #сравним кол-во чисел в каждой из гос. новостей и соответствующей ей независимой новости
 count_rus = 0
 count_indep = 0
-for n in range(1, 2):
+for n in range(1, 17):
     with open('rusnew' + str(n) +'.txt') as file:
         text = file.read()
         rus_numbers = re.findall(reg, text)
