@@ -27,7 +27,7 @@ for n in range(1, 17):
     print('Текст №' + str(n))
     with open('rusnew' + str(n) + '.txt', encoding = 'utf-8') as file:
         text = file.read()
-        print('Гос.новость: ', count_words(text, words))
+        print('Провластная новость: ', count_words(text, words))
     with open('indepnew' + str(n) + '.txt', encoding = 'utf-8') as file:
         text = file.read()
         print('Независимая новость: ', count_words(text, words))
@@ -35,7 +35,7 @@ for n in range(1, 17):
 print('Всего')
 with open('rusnews.txt', encoding = 'utf-8') as file:
         text = file.read()
-        print('Гос.новости: ', count_words(text, words))
+        print('Провластные новости: ', count_words(text, words))
 with open('indepnews.txt', encoding = 'utf-8') as file:
         text = file.read()
         print('Независимые новости: ', count_words(text, words))
