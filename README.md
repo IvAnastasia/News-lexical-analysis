@@ -19,7 +19,22 @@
 Все материалы, созданные кодами parcing+creatingdocs1 и creatingdocs2 (с добавлением вручную текстов "Новой газеты", код которой не получилось распарсить), тут: https://disk.yandex.ru/d/moHxBbGN_wWCaQ
 
 # Код
-Вот тут лежит что-то что делает что-то
+[Частотность частей речи](https://github.com/IvAnastasia/News-lexical-analysis/blob/main/POS.py) 
+
+[Уни-, би- и триграммы](https://github.com/IvAnastasia/News-lexical-analysis/blob/main/ngrams.py)
+
+[Парсер](https://github.com/IvAnastasia/News-lexical-analysis/blob/main/parcing%2Bcreatingdocs1.py)
+
+[Количество чисел в новостях](https://github.com/IvAnastasia/News-lexical-analysis/blob/main/numbers.py)
+
+[Определенная лексика](https://github.com/IvAnastasia/News-lexical-analysis/blob/main/определенные%20слова.py)
+
+[Средняя длина предложения](https://github.com/IvAnastasia/News-lexical-analysis/blob/main/средн%20длина%20предложения.py)
+
+[Средняя длина текста](https://github.com/IvAnastasia/News-lexical-analysis/blob/main/среднее%20количество%20предложений.py)
+
+[Уникальные слова](https://github.com/IvAnastasia/News-lexical-analysis/blob/main/уникальные%20слова.py)
+ 
 
 # Команда проекта
 Анастасия Иванова: 
