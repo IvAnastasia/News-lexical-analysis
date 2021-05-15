@@ -30,7 +30,7 @@ with open('indepnews.txt', encoding='utf-8') as file:
 #сравним по каждой новости отдельно
 rus = 0
 indep = 0
-for n in range(1, 2):
+for n in range(1, 17):
     print('Текст №' + str(n))
     with open('rusnew' + str(n) + '.txt', encoding='utf-8') as file:
         text = file.read()
