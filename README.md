@@ -1,3 +1,5 @@
+Презентация: https://docs.google.com/presentation/d/1q5lAEiJcgUR1HeS8PgA_cS1JEQU1hSEFpEy6YdveaTA/edit?usp=sharing
+
 # News-lexical-analysis
 Цель проекта - сравнить лексику новостей на одинаковую тематику нескольких условно “провластных” и “независимых” СМИ по разным параметрам.
 
