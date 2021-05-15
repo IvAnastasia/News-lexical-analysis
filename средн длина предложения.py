@@ -61,6 +61,6 @@ if sym_rus_num > sym_indep_num:
 elif sym_rus_num < sym_indep_num:
     print('В целом независимых новостей, в которых символов больше, больше: ', sym_indep_num, 'vs.', sym_rus_num)
 if word_rus_num > word_indep_num:
-    print('В целом гос. новостей, в которых слов больше, больше: ', word_rus_num, 'vs.', wor_indep_num)
+    print('В целом гос. новостей, в которых слов больше, больше: ', word_rus_num, 'vs.', word_indep_num)
 elif word_rus_num < word_indep_num:
-    print('В целом независимых новостей, в которых слов больше, больше: ', wor_indep_num, 'vs.', wor_rus_num)
+    print('В целом независимых новостей, в которых слов больше, больше: ', word_indep_num, 'vs.', word_rus_num)
