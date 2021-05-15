@@ -1,4 +1,5 @@
 # процент уникальных слов в тексте
+pip install pymorphy2
 import string
 import pymorphy2
 
