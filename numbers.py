@@ -10,11 +10,11 @@ def numbers_freq(text):
     return [freq, len(numbers)]
 
 #сравним кол-во чисел во всех гос. новостях и во всех независимых новостях
-with open('rusnews.txt') as file:
+with open('rusnews.txt', encoding='utf-8') as file:
     text = file.read()
     rus_freq = numbers_freq(text)[0]
     rus_numbers = numbers_freq(text)[1]
-with open('indepnews.txt') as file:
+with open('indepnews.txt', encoding='utf-8') as file:
     text = file.read()
     indep_freq = numbers_freq(text)[0]
     indep_numbers = numbers_freq(text)[1]
@@ -32,10 +32,10 @@ elif rus_freq < indep_freq:
 count_rus = 0
 count_indep = 0
 for n in range(1, 17):
-    with open('rusnew' + str(n) +'.txt') as file:
+    with open('rusnew' + str(n) +'.txt', encoding='utf-8') as file:
         text = file.read()
         rus_numbers = re.findall(reg, text)
-    with open('indepnew' + str(n) + '.txt') as file:
+    with open('indepnew' + str(n) + '.txt', encoding='utf-8') as file:
         text = file.read()
         indep_numbers = re.findall(reg, text)
     if len(rus_numbers) > len(indep_numbers):
@@ -45,4 +45,4 @@ for n in range(1, 17):
 if count_rus > count_indep:
     print('Гос.новостей, в которых чисел больше, больше: ' + str(count_rus) + ' vs. ' + str(count_indep))
 if count_indep > count_rus:
-    print('Независимых новостей, в которых чисел больше, больше: ' + str(count_indep) + ' vs. ' + str(count_rus))
+    print('Независимых новостей, в которых чисел больше, больше: ' + str(count_indep) + ' vs. ' + str(count)
