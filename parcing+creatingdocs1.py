@@ -1,6 +1,8 @@
+pip install requests
+pip install beautifulsoup4
+
 import requests
 import re
-import io
 from bs4 import BeautifulSoup
 
 
@@ -8,7 +10,7 @@ def parse(link):
     if 'meduza.' in link:
         return meduza(link)
     if 'novayagazeta' in link:
-        return '***the place for your manually NOVAYA GAZETA got text***'
+        return '***the place for your manually NOVAYA GAZETA got text***' #надо дополнить текст вручную
     if 'tvrain' in link:
         return rain(link)
     if 'rbc' in link:
@@ -283,4 +285,4 @@ for li in rus_links:
                 file.write(newstext)
     n += 1
 
-#check these files and start "gather" code
+#check these files and start "creatingdocs2" code
