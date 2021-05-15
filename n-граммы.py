@@ -54,33 +54,33 @@ def trigramms(text_name):
 #униграммы
 unigram_rus = unigramms('rusnews')
 for k, v in unigram_rus.items():
-    if v > 1:
+    if v > 5:
         print('слово "', k, '" встречается в текстах гос.новостей ', v, ' раз(а)')
 unigram_indep = unigramms('indepnews')
 for k, v in unigram_indep.items():
-    if v > 1:
+    if v > 5:
         print('слово "', k, '" встречается в текстах независимых новостей ', v, ' раз(а)')
 
 #биграммы
 bigram_rus = bigramms('rusnews')
 for k, v in bigram_rus.items():
-    if v > 1:
+    if v > 4:
         print('биграмма "', k, '" встречается в текстах гос.новостей ', v, ' раз(а)')
 
 bigram_indep = bigramms('indepnews')
 for k, v in bigram_indep.items():
-    if v > 1:
+    if v > 4:
         print('биграмма "', k, '" встречается в текстах независимых новостей ', v, ' раз(а)')
 
 #триграммы
 trigram_rus = trigramms('rusnews')
 for k, v in trigram_rus.items():
-    if v > 1:
+    if v > 3: #параметры частотности здесь и далее можно менять
         print('триграмма "', k, '" встречается в текстах гос.новостей ', v, ' раз(а)')
 
 trigram_indep = trigramms('indepnews')
 for k, v in trigram_indep.items():
-    if v > 1:
+    if v > 3:
         print('триграмма "', k, '" встречается в текстах независимых новостей ', v, ' раз(а)')
 
 #а теперь для каждой новости отдельно: сравним частотные уни-, би- и триграммы для каждой новости
@@ -89,25 +89,25 @@ for n in range(1, 17):
     print('Текст №' + str(n))
     unigram_rus = unigramms('rusnew' + str(n))
     for k, v in unigram_rus.items():
-        if v > 1:
+        if v > 5:
             print('слово "', k, '" встречается в тексте этой гос.новости ', v, ' раз(а)')
     unigram_indep = unigramms('indepnew' + str(n))
     for k, v in unigram_indep.items():
-        if v > 1:
+        if v > 5:
             print('слово "', k, '" встречается в тексте этой независимой новости ', v, ' раз(а)')
     bigram_rus = bigramms('rusnew' + str(n))
     for k, v in bigram_rus.items():
-        if v > 0:
+        if v > 4:
             print('биграмма "', k, '" встречается в этой гос.новости ', v, ' раз(а)')
     bigram_indep = bigramms('indepnew' + str(n))
     for k, v in bigram_indep.items():
-        if v > 0:
+        if v > 4:
             print('биграмма "', k, '" встречается в этой независимой новости ', v, ' раз(а)')
     trigram_rus = trigramms('rusnew' + str(n))
     for k, v in trigram_rus.items():
-        if v > 0:
+        if v > 3:
             print('триграмма "', k, '" встречается в этой гос.новости ', v, ' раз(а)')
     trigram_indep = trigramms('indepnew' + str(n))
     for k, v in trigram_indep.items():
-        if v > 0:
+        if v > 3:
             print('триграмма "', k, '" встречается в этой независимой новости ', v, ' раз(а)')
