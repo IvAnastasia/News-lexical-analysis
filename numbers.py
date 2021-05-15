@@ -45,4 +45,4 @@ for n in range(1, 17):
 if count_rus > count_indep:
     print('Гос.новостей, в которых чисел больше, больше: ' + str(count_rus) + ' vs. ' + str(count_indep))
 if count_indep > count_rus:
-    print('Независимых новостей, в которых чисел больше, больше: ' + str(count_indep) + ' vs. ' + str(count)
+    print('Независимых новостей, в которых чисел больше, больше: ' + str(count_indep) + ' vs. ' + str(count_rus))
