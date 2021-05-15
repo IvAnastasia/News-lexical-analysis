@@ -1,5 +1,6 @@
 import requests
 import re
+import io
 from bs4 import BeautifulSoup
 
 
@@ -7,7 +8,7 @@ def parse(link):
     if 'meduza.' in link:
         return meduza(link)
     if 'novayagazeta' in link:
-        return novaya(link)
+        return '***the place for your manually NOVAYA GAZETA got text***'
     if 'tvrain' in link:
         return rain(link)
     if 'rbc' in link:
@@ -30,14 +31,13 @@ def meduza(link):
     for data in alltext:
         newstext = newstext + data.text + ' '
     newstext = newstext.replace(' — Meduza', '')
-    newstext = newstext.replace('Данное сообщение (материал) создано и (или) распространено иностранным средством массовой информации, выполняющим функции иностранного агента, и (или) российским юридическим лицом, выполняющим функции иностранного агента.  ', '')
+    newstext = newstext.replace(
+        'Данное сообщение (материал) создано и (или) распространено иностранным средством массовой информации, выполняющим функции иностранного агента, и (или) российским юридическим лицом, выполняющим функции иностранного агента.  ',
+        '')
+    newstext = newstext.replace(
+        'Данное сообщение (материал) создано и (или) распространено иностранным средством массовой информации, выполняющим функции иностранного агента, и (или) российским юридическим лицом, выполняющим функции иностранного агента.  ',
+        '')
     return newstext + '\n'
-
-
-def novaya(link):
-    return 'troubles' + '\n'
-    # we have troubles here
-
 
 def rain(link):
     reg = re.compile(r"Вы уже подписчик[\s*\S*]*")
@@ -52,7 +52,10 @@ def rain(link):
 
 
 def rbc(link):
-    reg = re.compile(r" :: .+ :: РБК")
+    reg1 = re.compile(r" :: .+ :: РБК")
+    reg2 = re.compile(r"Видео[\s*\S*]*")
+    reg3 = re.compile(r"Фото на превью:.*")
+    reg4 = re.compile(r"\s+Video")
     page = requests.get(link)
     soup = BeautifulSoup(page.text, "html.parser")
     alltext = soup.findAll('p')
@@ -62,7 +65,10 @@ def rbc(link):
             pass
         else:
             newstext = newstext + data.text + ' '
-    newstext = re.sub(reg, '', newstext)
+    newstext = re.sub(reg1, '', newstext)
+    newstext = re.sub(reg2, '', newstext)
+    newstext = re.sub(reg3, '', newstext)
+    newstext = re.sub(reg4, '', newstext)
     return newstext + '\n'
 
 
@@ -84,6 +90,7 @@ def ria(link):
     reg1 = re.compile(r'''<div itemprop="headline">(.+)<\/div><div itemprop="name">''')
     reg2 = re.compile(r'''<div itemprop="articleBody">(.+)\.<\/div>''')
     reg3 = re.compile(r".+(( РИА Новости)|( Радио Sputnik.))")
+    reg4 = re.compile(r"<.+>")
     page = requests.get(link)
     soup = page.text
     head = ''
@@ -100,18 +107,22 @@ def ria(link):
             body = body + data.text
     body = re.sub(reg3, '', body)
     newstext = head + '.' + body
+    newstext = re.sub(reg3, '', newstext)
+    newstext = re.sub(reg4, '', newstext)
     return newstext + '\n'
 
 def rt(link):
-    reg = re.compile(r"© Автономная некоммерческая организация.*")
+    reg1 = re.compile(r"© Автономная некоммерческая организация.*")
+    reg2 = re.compile(r"<.+>")
     page = requests.get(link)
     soup = BeautifulSoup(page.text, "html.parser")
     alltext = soup.findAll('p')
     newstext = soup.title.text + '. '
     for data in alltext:
         newstext = newstext + data.text + ' '
-    newstext = re.sub(reg, '', newstext)
     newstext = newstext.replace(' — РТ на русском', '')
+    newstext = re.sub(reg1, '', newstext)
+    newstext = re.sub(reg2, '', newstext)
     return newstext + '\n'
 
 
@@ -230,7 +241,6 @@ indep_links = [[
                [
                    'https://meduza.io/news/2021/04/23/putin-ogranichil-dipmissii-nedruzhestvennyh-gosudarstv-v-vozmozhnosti-nanimat-sotrudnikov-iz-rossii',
                    'https://novayagazeta.ru/articles/2021/04/23/putin-podpisal-ukaz-o-deistviiakh-v-otvet-na-nedruzhestvennye-deistviia-inostrannykh-gosudarstv',
-                   'https://novayagazeta.ru/articles/2021/04/23/putin-podpisal-ukaz-o-deistviiakh-v-otvet-na-nedruzhestvennye-deistviia-inostrannykh-gosudarstv',
                    'https://www.rbc.ru/politics/23/04/2021/608313a29a7947347fa80dd0'],
                [
                    'https://meduza.io/news/2021/04/23/v-belarus-zapretili-vvozit-mashiny-skoda-avtomasla-liqui-moly-i-kosmetiku-nivea-posle-otkaza-etih-brendov-sponsirovat-chm-po-hokkeyu-v-minske',
@@ -255,6 +265,14 @@ indep_links = [[
                    'https://novayagazeta.ru/articles/2021/05/12/gosobvinenie-zaprosilo-do-145-goda-lisheniia-svobody-figurantam-dela-o-pozhare-v-zimnei-vishne',
                    'https://tvrain.ru/news/prokuror_zaprosil_ot_5_do_145_let_kolonii_dlja_figurantov_dela_o_pozhare_v_zimnej_vishne-529809/',
                    'https://www.rbc.ru/society/12/05/2021/609bc26d9a7947148deba741']]
+n = 1
+for li in indep_links:
+    with open('indepnew' + str(n) + '.txt', 'a', encoding='utf-8') as file:
+        for link in li:
+            newstext = parse(link)
+            if type(newstext) != None:
+                file.write(newstext)
+    n += 1
 
 n = 1
 for li in rus_links:
@@ -265,24 +283,4 @@ for li in rus_links:
                 file.write(newstext)
     n += 1
 
-#for i in range(1, n):
- #   with open('rusnew' + str(i) + '.txt', 'r', encoding = 'utf-8') as file1:
-  #              text = file1.read()
-   #             with open('rusnews.txt', 'a') as file2:
-    #                file2.write(text)
-
-
-n = 1
-for li in indep_links:
-    with open('indepnew' + str(n) + '.txt', 'a', encoding = 'utf-8') as file:
-        for link in li:
-            newstext = parse(link)
-            if type(newstext) != None:
-                file.write(newstext)
-    n += 1
-
-for i in range(1, n):
-    with open('indepnew' + str(i) + '.txt', 'r', encoding = 'utf-8') as file1:
-                text = file1.read()
-                with open('indepnews.txt', 'a') as file2:
-                    file2.write(text)
+#check these files and start "gather" code
