@@ -21,9 +21,9 @@
 Все материалы, созданные кодами parcing+creatingdocs1 и creatingdocs2 (с добавлением вручную текстов "Новой газеты", код которой не получилось распарсить), тут: https://disk.yandex.ru/d/moHxBbGN_wWCaQ
 
 # Код
-[Частотность частей речи](https://github.com/IvAnastasia/News-lexical-analysis/blob/main/POS.py) 
+[Частотность частей речи](https://github.com/IvAnastasia/News-lexical-analysis/blob/main/части_речи.py) 
 
-[Уни-, би- и триграммы](https://github.com/IvAnastasia/News-lexical-analysis/blob/main/ngrams.py)
+[Уни-, би- и триграммы](https://github.com/IvAnastasia/News-lexical-analysis/blob/main/n-граммы.py)
 
 [Парсер](https://github.com/IvAnastasia/News-lexical-analysis/blob/main/parcing%2Bcreatingdocs1.py)
 
