@@ -21,7 +21,7 @@ def count_words(text: str, words: list):
             report[word_normal_form] += 1
     return report
 
-words = ['русский', 'российский', 'западный', 'американский']
+words = ['русский', 'российский', 'западный', 'американский', 'белорусский']
 
 for n in range(1, 17):
     print('Текст №' + str(n))
