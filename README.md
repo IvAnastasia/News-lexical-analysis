@@ -27,6 +27,8 @@
 
 [Парсер](https://github.com/IvAnastasia/News-lexical-analysis/blob/main/parcing%2Bcreatingdocs1.py)
 
+[Создание двух доков со всеми новостями](https://github.com/IvAnastasia/News-lexical-analysis/blob/main/creatingdocs2.py)
+
 [Количество чисел в новостях](https://github.com/IvAnastasia/News-lexical-analysis/blob/main/numbers.py)
 
 [Определенная лексика](https://github.com/IvAnastasia/News-lexical-analysis/blob/main/определенные%20слова.py)
