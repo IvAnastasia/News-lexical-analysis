@@ -7,7 +7,7 @@ def mean_sentence_number(text):
 
 rus_sum = 0
 indep_sum = 0
-for n in range(1, 5):
+for n in range(1, 17):
     with open('rusnew' + str(n) + '.txt', encoding = 'utf-8') as file:
         text = file.read()
         rus_sum += mean_sentence_number(text)
